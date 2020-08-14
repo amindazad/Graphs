@@ -149,14 +149,46 @@ class Graph:
 
                 # Enqueue the neighbors path 
                 q.enqueue(neighbor_path)
-                
+
     def dfs(self, starting_vertex, destination_vertex):
         """
         Return a list containing a path from
         starting_vertex to destination_vertex in
         depth-first order.
         """
-        pass  # TODO
+        # initialize a visited set 
+        visited = set()
+        # initialize a path for starting vertex
+        path = [starting_vertex]
+        # setup a stack
+        s = Stack()
+        # push the path onto the stack
+        s.push(path)
+
+        # pop off the latest path while its not empty
+        while s.size() > 0:
+            # pop off the top path in the stack
+            current_path = s.pop()
+            # current_vertex is the last vertex in the current path
+            current_vertex = current_path[-1]
+            # if we're at destination return the current path
+            if current_vertex == destination_vertex:
+                return current_path
+            # if we havent visited the current vertex add it to the visited set
+            if current_vertex not in visited:
+                visited.add(current_vertex)
+            # Iterate through the current vertex neighbors
+            for neighbor in self.get_neighbors(current_vertex):
+                # Make copy of the current path
+                neighbor_path = current_path.copy()
+                # Add the neighbor to the current path
+                neighbor_path.append(neighbor)
+
+                # We're making a new path for each neighbor
+                # so we can check whihc path is the shortest
+
+                # push the new path onto the stack
+                s.push(neighbor_path)
 
     def dfs_recursive(self, starting_vertex, destination_vertex):
         """
