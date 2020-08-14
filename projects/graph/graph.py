@@ -100,15 +100,13 @@ class Graph:
             visited.add(vertex)
             # Get the neighbors
             neighbors = self.get_neighbors(vertex)
-            # If there are no neighbors, return the set of visited vertices 
-            # This is our base case
-            if len(neighbors) == 0:
-                return visited
 
             # otherwise iterate trhough the neighbors
             for neighbor in neighbors:
                 # And recurse for each neighbor
                 self.dfs_recursive(neighbor, visited)
+        else:
+            return
 
     def bfs(self, starting_vertex, destination_vertex):
         """
