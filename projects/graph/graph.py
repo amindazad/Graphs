@@ -83,10 +83,10 @@ class Graph:
                 for neighbor in self.get_neighbors(current_vertex):
                     s.push(neighbor)
 
-    def dft_recursive(self, starting_vertex, visited = None):
+    def dft_recursive(self, vertex, visited = None):
         """
         Print each vertex in depth-first order
-        beginning from starting_vertex.
+        beginning from vertex.
 
         This should be done using recursion.
         """
@@ -94,12 +94,12 @@ class Graph:
         if visited == None:
             visited = set()
         # if the starting vertex has not been visited:
-        if starting_vertex not in visited:
+        if vertex not in visited:
             # Print it and add it to the visited set
-            print(starting_vertex)
-            visited.add(starting_vertex)
+            print(vertex)
+            visited.add(vertex)
             # Get the neighbors
-            neighbors = self.get_neighbors(starting_vertex)
+            neighbors = self.get_neighbors(vertex)
             # If there are no neighbors, return the set of visited vertices 
             # This is our base case
             if len(neighbors) == 0:
