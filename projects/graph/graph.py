@@ -32,14 +32,7 @@ class Graph:
         Print each vertex in breadth-first order
         beginning from starting_vertex.
         """
-        pass  # TODO
-
-    def dft(self, starting_vertex):
-        """
-        Print each vertex in depth-first order
-        beginning from starting_vertex.
-        """
-        # Make a set to track visitors
+        # Make a set to track visited vertices
         visited = set()
 
         # Set up our queue
@@ -64,7 +57,13 @@ class Graph:
                 # add them to the queue
                 for neighbor in self.get_neighbors(current_vertex):
                     q.enqueue(neighbor)
-                    
+
+    def dft(self, starting_vertex):
+        """
+        Print each vertex in depth-first order
+        beginning from starting_vertex.
+        """
+
     def dft_recursive(self, starting_vertex):
         """
         Print each vertex in depth-first order
